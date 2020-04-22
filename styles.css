@@ -1,0 +1,13 @@
+#header{
+    text-align: center;
+    width: 20%;
+    margin: auto;
+}
+#list{
+   width: 5%;
+   margin: auto;
+   text-align: center;
+}
+#item{
+    padding:5px;
+}
