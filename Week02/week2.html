@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-2</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body>
+    <a style="text-decoration:none" href="../index.html">&#8592</a>
+    <div id = "week02">
+    <h1>Welcome to Week02</h1>
+        <h4>Notes and Questions</h4>
+    <!-- <pre> -->
+        <p>
+        Functions: There is a big differentece beween referencing a function and calling a function.<br>
+        The way we call a function is by using the () parenthesiss at the end of the function name or variable name<br>
+        If this is not done, the result is going to be a simple reference to the function. This is basically the concept<br>
+        of a pointer. 
+        Here is an exmaple:
+        <pre>
+        const testFunction = () =>{
+             console.log("Hello world!");
+        }
+        </pre>
+        <br>
+        <pre>
+        const pnter = testFunction; //The result here is as  simple reference to the anonymous function
+        pnter() // this is going to console log "Hello world!"
+        </pre>
+        <br>
+        <br>
+        <pre>
+        const testFunction = (...values) =>{} // this accepts any number of arguments and puts them in an array of values. </pre><br>
+        <br>
+        <br>
+        Callbacks are one of the strenght of javaScript. They are heavily relied upon because of the ability<br>
+        that the developer has to run a certain code in repsonse to a certain event with a certain parameter.<br>
+        Currently I am working on my Senior Project and I rely heavily on callback to architecture my logic.<br>
+        <br>
+        <br>
+        There are many ways to loop through an array in JavaScript. One that interested me especially was the .map(). This is <br>
+        systematically different from other ways of looping because .map() takes a callabck function as a parameter. This means<br>
+        that for each element in result of the loop, the callback is called on that value.<br>
+        <br>
+        The spread operator ... becomes very useful when I want to work with an array, but I dont not want to rewrite<br>
+        it's content each time something is added or deleted. This spread operator ... makes the array very dynamical and useful<br>
+        especilyl when queryin from APIs or Databases. <br>
+        <br>
+        The date structure SET is very useful when we don not want to have any duplicate whatsoever. In the background of a set,<br>
+        the set checks for the value attempted to be inserted against all the values currently in the set. If this return true (meaning there is a match)<br>
+        then the adding operation is complely ignored.<br>
+        <br>
+        The nice thing about Logic in programming languages is that it does not change. The syntax might, but the logic will not.<br>
+        Therefore the concept of looping and coditional statements remains the same across all programming lanauges, you basically only need to learn it once.<br>
+        <br>
+        <br>
+        Questions:
+        <ol>
+            <li>Can a callback function be an await function?</li>
+            <li>When exactly would it be more convenient to use a callback over a function with some result parameters passed in it?</li>
+        </ol>
+    </p>
+</div>
+<!-- </pre> -->
+</body>
+</html>
