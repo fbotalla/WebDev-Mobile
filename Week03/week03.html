@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-2</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body>
+    <a style="text-decoration:none" href="../index.html">&#8592Home</a>
+    <div id = "week03">
+    <h1>Welcome to Week03</h1>
+        <h4>Link to Team Activity of the week</h4>
+        <a href="./ta03.html">Team Activity</a>
+        <h4>Notes and Questions</h4>
+        <p>
+            <h3>This</h3>
+            Object Oriented Programming (OOP) is progrmaming concerning real world things, actions and situations.
+            Often times OOP takes much preprations and good architecture to establish well defined entities.
+            An example of a OOP might be:
+
+            <pre>
+                dog = {
+                    //Methods
+                    const canBark: ()=>{
+                        return 'Bark'
+                    }
+                    const isAsleep: ()=>{
+                        return true;
+                    }
+                    const setWeight: (weight)=>{
+                        this.weight = weight
+                    }
+                    const getWeight: ()=>{
+                        return this.weight
+                    }
+            
+                    //Variables
+                    breed: "Shephard"
+                    weight: ""
+                }
+            </pre>
+
+            In Javascript the keyword `this` can be used in any context. It does not throw errors, but it can also be
+            worthless to the code. 
+
+            <h3>Objects</h3>
+
+            THe {} denotes as object in JS. While object are declared using the keyword `const` they are mutable at any point
+            in the execution of the program.
+
+            ES6 makes thing much faster in JS. We were used to declared a object using:
+
+            <pre>
+                const name: "Me";
+                const person = { name:name }
+            </pre>
+            now with ES6 we can simply do :
+            <pre>
+                const name: "Me";
+                const person = { name };
+            </pre>
+
+            The keyword in when used in connection to an object (e.g <pre>'name' in Object</pre>) returns a boolean. If the 
+            property name is found it will return true otherwise false.
+            In Javascript it is very simple to add a new property to an Object. All we have to do is:
+            <pre>person.gender = 'male'</pre>
+            Objects variable are references to the memory address. This means that any clone that points to the same address in memory
+            will change the value for all other variables pointing to the same address. 
+
+            <h3>DOM</h3>
+
+            The DOM basically represent the HTML in a web page.
+            Javascript has the ability to communicate to HTML via the .document function,
+
+            <h3>Events</h3>
+
+            Events like DOM allow us to interact with the web page (HTML). In most cases events translate to clicks, changes, 
+            mouse movements and more.
+
+            
+
+
+
+        </p>
+
+    </div>
+
+    <footer style="padding-top: 25%">
+        &copy; 2020 | Portfolio | Week 3 | Fabrizio Botalla
+    </footer>
+    <!-- </pre> -->
+    </body>
+    </html>
