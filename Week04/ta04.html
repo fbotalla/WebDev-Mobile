@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Document</title>
+ <style>
+ main {
+ margin: 5em;
+ }
+ 
+ section {
+ /*border: solid 1px #000;*/
+ margin: 0 auto;
+ width: 300px;
+ }
+ 
+ section>.board-container {
+ display: grid;
+ grid-template-columns: repeat(3, 100px);
+ grid-template-rows: repeat(3, 100px);
+ 
+ }
+ 
+ section>.board-container div {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 3em;
+ }
+ 
+ .border-top-bottom {
+ border-top: 1px solid #000;
+ border-bottom: 1px solid #000;
+ }
+ 
+ .border-left-right {
+ border-left: 1px solid #000;
+ border-right: 1px solid #000;
+ }
+ 
+ .border-all {
+ border: solid 1px #000;
+ }
+ </style>
+</head>
+ 
+    <body>
+    <main>
+        <section>
+         <div class="board-container">
+            <div id="cell-one" data-value="0"></div>
+            <div id="cell-two" data-value="1" class="border-left-right"></div>
+            <div id="cell-three" data-value="2"></div>
+            <div id="cell-four" data-value="3" class="border-top-bottom"></div>
+            <div id="cell-five" data-value="4" class="border-all"></div>
+            <div id="cell-six" data-value="5" class="border-top-bottom"></div>
+            <div id="cell-seven" data-value="6"></div>
+            <div id="cell-eight" data-value="7" class="border-left-right"></div>
+            <div id="cell-nine" data-value="8"></div>
+        </div>
+
+       
+        </section>
+        <button id='reset' onclick="resetBoard()">Reset</button>
+    </main>
+    <script>
+    const board = document.querySelector('.board-container');
+    
+    board.addEventListener('click', touchend, false);
+    
+    let moves = ['', '', '', '', '', '', '', '', ''];
+    let counter = 0;
+    
+    function checkWinner(moves) {
+    // Winning combinations
+    // 1, 2, 3
+    // 4, 5, 6
+    // 7, 8, 9
+    // 1, 4, 7
+    // 2, 5, 8
+    // 3, 6, 9
+    // 1, 5, 7
+    // 3, 5, 7
+    const winningMoves = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+   ]
+
+   let youWin = false;
+    for (let i = 0; i <= 7; i++) {
+        const winCondition = winningMoves[i];
+        let a = moves[winCondition[0]];
+        let b = moves[winCondition[1]];
+        let c = moves[winCondition[2]];
+        if (a === '' || b === '' || c === '') {
+            continue;
+        }
+        if (a === b && b === c) {
+            youWin = true;
+            break
+        }
+    }
+
+   
+    console.log(moves);
+    console.log(youWin)
+    return youWin
+    }
+    
+    function markCell(id, mark) {
+        document.getElementById(id).innerHTML = mark;
+        let movesIndex = document.getElementById(id).getAttribute('data-value');
+        moves[movesIndex] = mark;
+        
+        return moves;
+    }
+    
+    function checkCellMark(id) {
+        const cellMarked = document.getElementById(id).innerHTML;
+        return cellMarked === '' ? true : false;
+        }
+        
+    function touchend(event) {
+            event.preventDefault;
+            let clickedCell = event.target.id;
+            
+            if (checkCellMark(clickedCell)) {
+            if (counter % 2 === 0) {
+            mark = 'X';
+            } else {
+            mark = 'O'
+            }
+            let moves = markCell(clickedCell, mark);
+            result = checkWinner(moves);
+            counter += 1;
+            } else {
+            alert('Choose another cell.');
+            }
+       
+    }
+
+    function resetBoard() {
+      location.reload();
+    }
+    </script>
+    </body>
+ 
+</html>
