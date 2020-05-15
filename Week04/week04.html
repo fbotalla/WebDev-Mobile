@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-4</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body>
+    <a style="text-decoration:none" href="../index.html">&#8592Home</a>
+    <div id = "week04">
+    <h1>Welcome to Week04</h1>
+        <h4>Link to Team Activity of the week</h4>
+        <!-- <a href="./ta03.html">Team Activity</a> -->
+        <h4>Notes and Questions</h4>
+        <p>
+            <h3>Forms</h3>
+            Forms are an essential components of most webpages. This is especially true when user input and data is required in order
+            for the web page to function. Typically forms are composed of buttons, text, inputs and other components.
+            When a form is submitted it is sent to the server to be process. JavaScript has the ability in intercept the form submitted
+            and work with it before it is sent to the server side.
+            With JavaScript we typically want to valid a form on the client side before it goes to the server. This becomes simple
+            with events. In JavaScript we can listen for specifc events and do something when does events are triggered.
+            These events conist of but not limited to: click events, mouse movements event, text change and so on.
+            Below is a simple example of a form:
+        <pre>
+            &lt;form&gt;
+                &lt;label for="fname"&gt;First name:&lt;/label&gt;
+                &lt;input type="text" id="fname" name="fname"&gt;
+                &lt;label for="lname"&gt;Last name:&lt;/label&gt;
+                &lt;input type="text" id="lname" name="lname"&gt;
+            &lt;/form&gt;
+        </pre>
+
+            <h3>Object Oriented Prgramming</h3>
+            As a premise, JavaScript is not based on OOP like other languages such as Java or C++. The rule and principle of OOP are applicable
+            to JavaScript classes and object as well. Everything is JavaScript is an Object. There we have to learn to work with
+            inhertitance and instances. 
+            To make it simple, OOP is the idea that everything is an object (like in real life) and these object have properties and
+            can do something. 
+
+            An exemple of an Object is this:
+
+            <Pre>
+                class Human {
+                    constructor(name,lastName,gender){
+                        this.name = name;
+                        this.gender = gender;
+                        let lastName;
+                        this.setLastName = lastName =>{return this.lastName = lastName};
+                        this.getLastname = () => this.lastName;
+                    }
+                    canWalk(){
+                        return true;
+                    }
+                    isAsleep(){
+                        return false
+                    }
+                    canSpeak(){
+                        return 'Hi I am ${this.name}'
+                    }
+                }
+            </Pre>
+
+            Object or classes become very useful when we need to use multiple of them throughout multiple areas of the code.
+            To initialize an object we do the following:
+
+            <pre>const frank = new Human('Frank','Doe','Male')</pre>
+
+            From this <pre>frank</pre> object we can then call the various functions that have been declared in the <pre>Human</pre> class.
+            I am currently working on a React Native project which is a framework to React which in return is a library to JavaScript.
+            React utilizes this idea of OOP. It is comes in a different format, but the idea behind it is very similar. 
+
+            <h3>Modules</h3>
+            Similarly to other languages such as Java or C++ whose core is OOP, JavaScript can also utilize the same OOP programming.
+            In Java or C++ we typically have a variety of files which represent the different classes. We can then import these objects
+            into other files. These creates a simple to read and easy to navigate envirnment. In JavaScript we can also do this with Modules.
+            We can export single functions or entire classes and then import them where we will use them in coordination with other .js files.
+
+            Here is an example of how to export:
+            
+            <pre>export default Human</pre>
+
+            to import in a differet .jf file we can do the following:
+
+            <pre>import Human from 'pathToJSFile' </pre>
+
+        </p>
+
+    </div>
+
+    <footer style="padding-top: 25%">
+        &copy; 2020 | Portfolio | Week 4 | Fabrizio Botalla
+    </footer>
+    <!-- </pre> -->
+    </body>
+    </html>
