@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-5</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body>
+    <a style="text-decoration:none" href="../index.html">&#8592Home</a>
+    <div id = "week05">
+    <h1>Welcome to Week05</h1>
+        <h4>Link to Team Activity of the week</h4>
+        <a href="./ta05.html">Team Activity</a>
+        <h4>Notes and Questions</h4>
+
+        <h3>Tesing and Debugging</h3>
+        <p>
+            In my experience I have seen how important testing and debugging. In many development methodologies testing come before writing the actual functions.
+            This is also known as <b>Test-driven Development</b> or <b>TDD</b>. The idea behind TDD is that the developer writes the test and then write functions
+            that are meant to pass the written test. This process definitely adds a certain level of complexity as well as time, but in the long run, the product
+            will be one a robust one. Whether or not the TDD process is utilized, a developer should always test the non-trivial code. This will increase condifence
+            in deploying a well complete product. Tests can also be run using third party libraries.
+
+            Debugging on the other is the process to find certain bugs in the written code. These bugs come in many different forms. Often they are simple typos that
+            the developer made while writing. Other times the logic is faulty. As there are many different bugs we also have many different ways to debug a JS program.
+            A very used and useful way to do is by using the console or terminal. Web browsers have a console integrated in which we can check for expected values. An 
+            exemple of using the console would be:
+
+            <pre>console.log(Here we would want to pass a variable to check for its value. We can also pass other things like objects and much more)</pre>
+
+            When we do so, the program will execute the console.log() function in the console of the browser or the terminal of the JS project.
+            As mentioned before this is a very popular way to debug programs. Because JavaScript is a very forgiving language we want to use console.log() as much
+            as possible so that we can ensure that our logic is valid and that expected values are actually correct. 
+            Another common way to check for expected values without crashing the code is to use a try catch statement. This is very simple to use.
+            an example of this would be:
+
+            <pre>
+                try{
+                    if(x > 1) throw 'bigger';
+                    if(x < 1) throw 'smaller';
+                }catch(err){
+                    console.log(err)
+                }
+            </pre>
+            basically within the try brackets we want to place the code to try out. If that fails the catch statement is fired and it typically would display
+            the error message associated to the try statement that failed. Even though it might seem similar to an if else statement, the try catch is quite
+            different. The program will never crash if something in the try statement evaluates faulty.
+
+
+
+        </p>
+        
+    </div>
+
+    <footer style="padding-top: 25%">
+        &copy; 2020 | Portfolio | Week 4 | Fabrizio Botalla
+    </footer>
+    <!-- </pre> -->
+    </body>
+    </html>
