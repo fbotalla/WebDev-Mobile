@@ -1,0 +1,21 @@
+#container{
+    padding: 2px;
+    margin: 5px;
+}
+#delete{
+    float: right;
+}
+.addTodo{
+    margin-top: 40px ;
+}
+.options{
+    flex-direction: row;
+ 
+}
+#todopar.checked {
+    color: red;
+}
+
+#todopar:hover{
+    color:red;
+}
