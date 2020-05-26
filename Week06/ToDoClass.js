@@ -1,12 +1,12 @@
 export class Todo{
-    constructor(value, date){
+    constructor(value,completed, trash, id){
         this.content = value;
-        this.completed = false;
-        this.id = date
+        this.completed = completed;
+        this.trash = trash
+     
+        this.id = id
     }
-    
-    getValue(){
+        getValue(){
         return this.content;
     }
-   
 }

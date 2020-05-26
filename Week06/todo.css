@@ -2,20 +2,52 @@
     padding: 2px;
     margin: 5px;
 }
-#delete{
-    float: right;
-}
 .addTodo{
     margin-top: 40px ;
 }
+#displayList{
+    display: flex;
+    align-items: baseline;
+}
+.line-through{
+    text-decoration: line-through;
+}
+#spanItem{
+    display: flex;
+    align-items: baseline;
+}
+.item {
+    display: flex;
+    align-items: baseline;
+}
+.item > *{
+    margin: 30px;
+}
+.item > p{
+    float: right;
+}
+#body{
+    text-align: center;
+    background: #f3faef;
+}
+ul#listTodos > div:nth-of-type(odd){
+    background:#ebebeb;
+}
+h1{
+    color: grey;
+}
+#addBtn{
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 5px;
+}
 .options{
-    flex-direction: row;
- 
+    padding: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px solid black;
 }
-#todopar.checked {
-    color: red;
-}
-
-#todopar:hover{
-    color:red;
+#inputTodo{
+    width: 50%;
+    height: 30px;
 }
