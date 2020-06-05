@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-5</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body>
+    <a style="text-decoration:none" href="../index.html">&#8592Home</a>
+    <div id = "week07">
+    <h1>Welcome to Week07</h1>
+        <h4>Link to Team Activity of the week</h4>
+        <a href="./ta07.html">Team Activity</a>
+        <h4>Notes and Questions</h4>
+
+        <h3>More on Functions</h3>
+        <p>This week we learned more on functional expressions. One thing that stood out to me this week was this example
+            <pre>function party(){
+                console.log('Wow this is amazing!');
+                party = function(){
+                    console.log('Been there, got the T-Shirt');
+                }
+            }</pre>
+        Basically here this simple, but interesting concept is happening. When the party() function is called
+        We first get the first console.log message. It then redefines itself. This is pretty interesting because when we 
+        call the party() function once more and forever after we get the second console.log to show up.
+
+        The other interesting scenario that goes along this is withing this simple line of code: 
+
+        <pre>const beachParty = party</pre>
+
+        Now, one might assume that the first time we call beachParty() we will get the first console.log to fire. 
+        This is a correct asusmption. We might go further into saying that the second time and forever after time
+        we call the beachParty() function we will get the second console.log to fire. This is incorrect.
+        beachParty() will continue to fire the first console.log() because it was initialized with the party function
+        without it being fired.
+        Now the party() will act a little dirrently than expected also. If we were to call it before the beachParty()
+        function then we would get the first console.log() to fire. After that call we would get the second console.log()
+        to fire. If we call beachParty() and then party(), then party() will fire the second console.log().
+        I found this to be a very interesting concept.
+
+        The other topic that was discussed and that is quite interesting to me is the callback
+        Javascript can get quite complex because of the many callback functions used. When we have lots of callback
+        function one after the other we call that Spaghetti Code.
+        The idea behind the callback is that we can pass a function as a paramenter to another function. THe function
+        receiving the parameter would then call the callback function within itself. When this is done, the callback
+        fires before the end of execution of the first function. THis is convenient because we can use the results of our
+        callback in our original function.
+
+        Along with functions come the async and await functionality. This is commonly used to make codes asyncrounous.
+        an example of this would be such:
+
+        <pre>async() => {
+            const ref = await //some function that has a return value here
+            console.log(ref);
+            }</pre>
+
+        Basically here we have an async function. If we did not have the await keyword in from of our function we would get 
+        undefined displayed on the console. Instead, because of our await keyword, the code below will not be executed
+        until the ref is being populated by whatever retun value our function has. Pretty cool. 
+
+
+        <h3>AJAX</h3>
+
+        To keep it simple, AJAX are requests made to the server that return data. The data returned is typically returned in an XML format 
+        or JSON format. JS was designed to be a front end language. It can communicate to the server using AJAX.
+        The basic usage for JS to make an AJAX call is by using the fetch() function. 
+        example: 
+
+        <pre>
+            fetch(//some url).then((response)=>{
+                console.log(response)
+            })
+        </pre>
+
+        Basically here we make a request to an url. Then and only then (meaning after the request has been made) we use the response and
+        we print it on the console. To this simple function we could add a way to make sure that the fetch() request was successful
+        and we could also add a way to check that the response is also ok. There are many other things we could add to this. 
+
+        With AJAX we can also send data to the server. For example when we use a form from an HTML page, we can send it back to server
+        using AJAX. 
+
+        </p>
+
+
+
+
+    <footer style="padding-top: 25%">
+        &copy; 2020 | Portfolio | Week 4 | Fabrizio Botalla
+    </footer>
+    <!-- </pre> -->
+    </body>
+    </html>
