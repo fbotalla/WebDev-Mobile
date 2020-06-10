@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-8</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./week08.css">
+</head>
+<body id='body' onload="makeVideoOldTimey()">
+    <a style="text-decoration:none" href="../index.html">&#8592Home</a>
+    <div id = "week08">
+    <h1>Welcome to Week08</h1>
+        <h4>Link to Team Activity of the week</h4>
+        <a href="./ta08.html">Team Activity</a>
+        <h4>Notes and Questions</h4>
+        <h3>CSS transforms and Transistions</h3>
+
+        <p>We are now shiftin our focus to some interesting CSS features that the front-end development
+            can do. I personally have never worked much with these features, therefore my learning process
+            has been quite slow, but quite rewarding.
+           
+            Transforms and transitions allow us to have a more interactive GUI. We can place graphics anywhere 
+            we want and in whatever shape or form we want without effecting the other components.
+
+            A good example of this would be the idea of having a pciture or object move throughout the screen
+            This can be accomplished using CSS
+        </p>
+        <div id="stage">
+            <div id="traveler">
+                <div id="bouncer"></div>
+            </div>
+        </div>
+
+        <p>Review the CSS code for more details on it. It's quite complex at first, but once thigs
+        get going it becomes easier and eaiser to use.
+        Here is a reference to the CSS.
+        
+       <pre><code>
+            
+@-webkit-keyframes travel {
+    from { left: 0;     }
+    to   { left: 640px; }
+  }
+  
+  @-webkit-keyframes bounce {
+    from, to  {
+      bottom: 0;
+      -webkit-animation-timing-function: ease-out;
+    }
+    50% {
+      bottom: 220px;
+      -webkit-animation-timing-function: ease-in;
+    }
+  }
+  
+  @-webkit-keyframes spin {
+    from {                                     }
+    to   { -webkit-transform: rotateZ(360deg); }
+  }
+  
+  
+  @keyframes travel {
+    from { left: 0;     }
+    to   { left: 640px; }
+  }
+  
+  @keyframes bounce {
+    from, to  {
+      bottom: 0;
+      animation-timing-function: ease-out;
+    }
+    50% {
+      bottom: 220px;
+      animation-timing-function: ease-in;
+    }
+  }
+  
+  @keyframes spin {
+    from {
+      -moz-transform: rotate(0);
+      -o-transform: rotate(0);
+      -ms-transform: rotate(0);
+      transform: rotate(0);
+    }
+    to {
+      -moz-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  #stage {
+    position: relative;
+    margin: 1em auto;
+    width: 660px;
+    height: 240px;
+    border: 2px solid #666;
+    background: #cff;
+  }
+  
+  #traveler {
+    position: absolute;
+    width: 20px;
+    height: 240px;
+  
+    -webkit-animation-name: travel;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-duration: 4.8s;
+  
+    animation-name: travel;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 2.8s;
+  }
+  
+  #bouncer {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 1px;
+    background: red;
+    
+   
+    -webkit-animation-name: bounce, spin;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 3.2s;
+  
+    animation-name: bounce, spin;
+    animation-iteration-count: infinite;
+    animation-duration: 3.2s;
+  }
+        </code></pre>
+        </p>
+
+        <h3>Canvas</h3>
+        
+        <p>
+            A Canvas is basically an object with modifiable properties.
+            The example below has been taken from the book, try to press play, pause and then press play again at some point.
+            Notice how the canvas changes based on the frame of video in which the play button is being clicked on.
+            We can then modify the graphic within the canvas to make it look black and white.
+        </p>
+
+        <canvas id="myCanvas" class="myCanvas" width="200" height="200">
+            Sorry! Your browser doesn’t support Canvas.
+        </canvas>
+
+        <video width="320" height="240" controls id="video">
+            <source src="video.mp4" type="video/mp4">
+            <source src="video.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+          </video>
+
+
+    <footer style="padding-top: 25%">
+        &copy; 2020 | Portfolio | Week 8 | Fabrizio Botalla
+    </footer>
+
+
+    <script type="" src="./week08.js"></script>
+    <!-- </pre> -->
+    </body>
+    </html>
