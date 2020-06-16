@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-9</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body>
+    <a style="text-decoration:none" href="../index.html">&#8592Home</a>
+    <div id = "week09">
+    <h1>Welcome to Week09</h1>
+        <h4>Link to Team Activity of the week</h4>
+        <a href="./ta09.html">Team Activity</a>
+        <h4>Notes and Questions</h4>
+
+        <h3>Window object</h3>
+        <p>
+
+            The window object is basically a class with various properties and methods. These properties
+            and method encapsule the information regarding the web windows we are operating on.
+            For my senior project I have been working with React Native which utilizes Javascript to 
+            map the logic of the operations. Because React Native does not operate in the browser, the object 
+            'window' is pointless. I am sharing this to illustrate that windows only operates within specific web
+            environments.
+
+            A few common and used method for window are the following:
+
+            <pre>
+                <code>
+                    window.alert('This is pausing the execution of the program and displays a message') <br>
+                    window.confirm('This also pauses the program and prompts the user continuing  ') <br>
+                    window.prompt('Also pauses the program and prompts the user for input')  <br>
+                </code>
+            </pre>
+
+            A few other interesting methods and properties of window are some that return the information
+            regarind the browser being used, the location of the URL, the protocol of the location (http, https, etc..),
+            the port number (if stated in the URL). <br>
+
+            Other methods include the reload() method, which forces the reload of the page, assign() which loads another resources from URL
+
+            The document object is a sub object to the window. Because of this object we can begin utilizing cookies. 
+
+            <br>
+            On a different topic when we deal with browsers, windows and Javascript we always come across Cookies. Cookies simply
+            are small sized files that store information regarding previous visits to the site made by users.
+
+            <br>
+            To create a cookie on a windows document object we can simply do 
+            <pre>
+                <code>
+                    document.cookie = 'value=some string'
+                </code>
+            </pre>
+            now, if we do the above again we are going to overwrite the cookie.
+            
+            If we were to do the following:
+            <pre>
+                <code>
+                    document.cookie = 'name=some string'
+                </code>
+            </pre>
+            By so doing we would simply add a new cookie to the cookie jar. Note the value= bs the name=.
+            With cookies we can also set expiration times so that they self delete. 
+
+            <pre>
+                <code>
+                    document.cookie = 'name=some string; max-age=timeInSeconds'
+                </code>
+            </pre>
+
+            <br><br>
+
+            <h3>HTML5 & APIs</h3>
+
+            HTML5 has given to the HTML markup language more flexibility and more integration
+            with its partner Javascript. With HTML we have now a series of attributes that we can give
+            to our html tags. One of these is the data attribute. 
+            <br>
+            HTML5 has also introduced us to the localStorage API which store data using a key value pair 
+            combination. 
+            <br>
+            HTML5 has also introduced the Web Workers API. With webworkers we can maitained the working status
+            of the program while complex computation are taking place in the background.
+            One interesting thing about Web Workers is that with them we can even use the program in 
+            offline mode and still maintain many of the online features. 
+            <br>
+            HTML5 also introduced Websockets. These web sockets allow for continual communicaiton
+            between parties.
+            <br>
+            HTML5 has introduced a lot more very useful APIs that have shaped and changed the power of simple HTML 
+            <br><br>
+
+            In conclusion, most browsers support HTML5 and its new features. They are constantly used and have made HTML 
+            a more dynamic and productive markup languange. 
+
+
+        </p>
+       
+
+    <footer style="padding-top: 25%">
+        &copy; 2020 | Portfolio | Week 7 | Fabrizio Botalla
+    </footer>
+    <!-- </pre> -->
+    </body>
+    </html>
