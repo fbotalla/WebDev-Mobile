@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-10</title>
+</head>
+<body>
+    <a style="text-decoration:none" href="../index.html">&#8592Home</a>
+    <div id = "week10">
+    <h1>Welcome to Week10</h1>
+    This week I will keep it pretty brief as I have already made a summary of these topics in my previous weeks.
+     <h3>Validating Forms</h3>
+     <p>
+         Validating a form comes in two main subclasses: on the client side or on the server side.
+         We are only focusiong on the validation within the client side for this class purpose.
+         Validating a class on the client side comes also in two forms: within the HMTL5 tags or through Javascript.
+
+         When those two are combined they typically give a better user experience. 
+         HTML5 validation examples:
+         <ul>
+             <li>Required</li>
+             <li>minlenght & maxlenght</li>
+             <li>type</li>
+             <li>Regular expression</li>
+         </ul>
+         These validations methods sits in the HTML tag and they provide validity to the actual user input. 
+         Typically these validations for both JS and HTML5 are combined with CSS to allow the user to have a 
+         visual of where the issue might be at in their input. 
+         <br><br>
+
+
+        <form>
+            <div>
+                <label for="choose">Would you prefer a banana or a cherry?</label>
+                <input type="text" id="choose" name="i_like" required minlength="6" maxlength="6">
+            </div>
+            <div>
+                <label for="number">How many would you like?</label>
+                <input type="number" id="number" name="amount" value="1" min="1" max="10">
+            </div>
+            <div>
+                <button>Submit</button>
+            </div>
+        </form>
+
+         <br>
+         The other type of validation comes from JS. With Javascript we have more playing area in how errors are caught, and how
+         error messages are displayed. HTML5 validation is way more static, while JS is dynamical. 
+         The commonly used validation DOM interfaces in Javascript are:
+         <ul>
+            <li>HTMLButtonElement</li>
+            <li>HTMLFieldSetElement</li>
+            <li>HTMLInputElement</li>
+            <li>HTMLOutputElement</li>
+            <li>HTMLSelectElement</li>
+            <li>HTMLTextAreaElement</li>
+         </ul>
+         Now, the common API used are:
+         <ul>
+             <li>validationMessage</li>
+             <li>validity</li>
+             <li>willValidate</li>
+         </ul>
+         With these API we get methods that are availiable for us to use to check the validation of a form, for example 
+         <pre>
+            checkValidity()
+         </pre>
+         <br>
+         <form novalidate>
+            <p>
+              <label for="mail">
+                <span>Please enter an email address:</span>
+                <input type="email" id="mail" name="mail" required minlength="8">
+                <span class="error" aria-live="polite"></span>
+              </label>
+            </p>
+            <button>Submit</button>
+          </form>
+
+          <script>  
+const form  = document.getElementsByTagName('form')[0];
+
+const email = document.getElementById('mail');
+const emailError = document.querySelector('#mail + span.error');
+
+email.addEventListener('input', function (event) {
+  if (email.validity.valid) {
+
+    emailError.innerHTML = ''; 
+    emailError.className = 'error'; 
+  } else {
+    showError();
+  }
+});
+
+form.addEventListener('submit', function (event) {
+
+  if(!email.validity.valid) {
+    showError();
+    event.preventDefault();
+  }
+});
+
+function showError() {
+  if(email.validity.valueMissing) {
+    emailError.textContent = 'You need to enter an e-mail address.';
+  } else if(email.validity.typeMismatch) {
+    emailError.textContent = 'Entered value needs to be an e-mail address.';
+  } else if(email.validity.tooShort) {
+    emailError.textContent = `Email should be at least ${ email.minLength } characters; you entered ${ email.value.length }.`;
+  }
+
+  emailError.className = 'error active';
+}
+          </script>
+
+          In production, whether or not we have solid client side validaiton, we always want to make sure we have some sort of security
+          validation on the server side.
+     </p>
+      
+    <footer style="padding-top: 25%">
+        &copy; 2020 | Portfolio | Week 10 | Fabrizio Botalla
+    </footer>
+
+    </body>
+    </html>

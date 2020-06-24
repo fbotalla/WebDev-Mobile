@@ -5,48 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FunEverywhere</title>
 
-   
+    <link rel="stylesheet" type="text/css" href="./fe.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQu-MEDSgj_Aun3ZDVehxc5yqRN0r6kr4&libraries=places"></script>
-    <script type="module" src ='./firebase.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-storage.js"></script>
     <script type="module" src="./fe.js"></script>
-</head>
+</head> 
 <body>
 
 
 </script>
-    <h3>Search for FUN</h3>
+<div id = 'background'>
+        <h3>Search for FUN</h3>
 
-    <form action="">
+        <form action="">
+        <div>
+            Within 
+            <select id = 'selections'>
+                <option value="0">Select</option>
+                <option value="0">0</option>
+                <option value="5">5</option>
+                <option value="25000">Everywhere</option>
+            </select>
+            miles of
+        </div>
+        <div> 
+            <input id="searchTextField" type="text" size="50">
+        </div>
+        <div>
+            On
+        </div>
+
+        <input type="date" id="date">
+
+        <div>
+        
+        </div>
+    </form>
+    <button id="submitThis">Search</button>
+
     <div>
-        Within 
-        <select >
-            <option>Select</option>
-            <option>0</option>
-            <option>5</option>
-        </select>
-        miles of
-    </div>
-    <div> 
-        <input id="searchTextField" type="text" size="50">
-    </div>
-    <div>
-        On
-    </div>
+        <ul id="list">
 
-    <input type="date">
-
-    <div>
-      
+        </ul>
     </div>
-</form>
-<button onclick="submitForm()">Search</button>
-
-<div>
-    <ul>
-
-    </ul>
 </div>
-
 
 
 </body> 
