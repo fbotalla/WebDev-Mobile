@@ -17,7 +17,7 @@ var frm = document.getElementById("form");
 
 
 
-
+ 
 //STATE
 var arrActivities = [];
 var photosActivities = []
