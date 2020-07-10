@@ -1,34 +1,100 @@
-.image{
-    width: 100px;
-    height: 100px;
-    float: left;
-}
-.title{
-    color: red;
-    margin-right: 20px;
-}
-#list > div{
-   
-}
-#list > div:hover{
-    background-color: grey;
-   
-}
-#list > div > div{
+.divContainer{
     display: flex;
     flex-direction: row;
     margin: 20px;
+}
+.title{
+    color: grey;
+    margin-right: 20px;
+}
+.image{
+    width: 100px;
+    height: 100px;
+    border: 2px solid gray;
+    border-radius: 25px;
+    float: right;
+    margin-left: auto;
+	margin-right: 0px;
+}
+
+#list > div:hover{
+    background-color:  rgb(255, 212, 212);
+    padding: 5px;
+    border-radius: 35px;
+}
+
+#form{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+#form * {
+    margin: 7px;
+    font-size: 16px;
 }
 #background{
     display:flex;
     flex-direction: column;
     justify-content:center;
     align-items:center;
-    background-color: grey;
-    margin-right: 10%;
-    margin-left: 10%;
+    background-color: whitesmoke;
+    margin-right: 5%;
+    margin-left: 5%;
     border: 2px solid gray;
     border-radius: 25px;
-    -webkit-box-shadow: 0 0 10px rgb(97, 72, 72);
     box-shadow: 0 0 10px rgb(97, 72, 72);
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: rgb(153, 151, 151);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.checked{
+    border: 1px solid #888;
+    color: red;
+}
+#buttonChosing{
+    display: flex;
+}
+
+#listEvent > div:hover{
+    background-color:  rgb(255, 212, 212);
+    padding: 5px;
+    border-radius: 35px;
+}
+h4{
+    margin-left: 10px;
 }

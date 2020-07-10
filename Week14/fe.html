@@ -5,33 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FunEverywhere</title>
 
-    <link rel="stylesheet" type="text/css" href="./fe.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQu-MEDSgj_Aun3ZDVehxc5yqRN0r6kr4&libraries=places"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-storage.js"></script>
-    <script type="module" src="./fe.js"></script>
-</head> 
+
+    <link rel="stylesheet" type="text/css" href="./fe.css">    
+    
+</head>  
 <body>
  
 
 </script>
 <div id = 'background'>
-        <h3>Search for FUN</h3>
+        <h2>Search for FUN</h2>
 
-        <form action="">
+        <form action="" id= 'form'>
+        <p>Choose to view Activities, Events or Both!</p>
+        <div id='buttonChosing'>
+            <button id='btnAct'>Activities</button>   
+            <button id='btnEve'>Events</button>
+        </div>
         <div>
             Within 
             <select id = 'selections'>
                 <option value="0">Select</option>
                 <option value="0">0</option>
                 <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
                 <option value="25000">Everywhere</option>
             </select>
             miles of
         </div>
         <div> 
-            <input id="searchTextField" type="text" size="50">
+            <input id="searchTextField" type="text" size="20" placeholder="Location">
         </div>
         <div>
             On
@@ -42,15 +48,37 @@
         <div>
         
         </div>
-    </form>
-    <button id="submitThis">Search</button>
+        <button id="submitThis">Search</button>
 
+    </form>
+   
     <div>
         <ul id="list">
 
         </ul>
     </div>
+
+    <div>
+        <ul id="listEvent">
+
+        </ul>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content" id="modal-content">
+    
+
+        </div>
+      
+      </div>
 </div>
+
+    <script type="module" src="buttons.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQu-MEDSgj_Aun3ZDVehxc5yqRN0r6kr4&libraries=places"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-storage.js"></script>
+    <script type="module" src="./fe.js"></script>
 
 
 </body> 

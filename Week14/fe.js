@@ -1,28 +1,21 @@
 import geohash from 'https://cdn.jsdelivr.net/npm/latlon-geohash@2.0.0';
+import key from './keys.mjs'
+import fire from './firebase.mjs'
 
-var firebaseConfig = {
-    apiKey: "AIzaSyAbODuYbpo1EI9eAcEvfQGv1UNrYJ1qaHE",
-    authDomain: "fe-funeverywhere.firebaseapp.com",
-    databaseURL: "https://fe-funeverywhere.firebaseio.com",
-    projectId: "fe-funeverywhere",
-    storageBucket: "fe-funeverywhere.appspot.com",
-    messagingSenderId: "721226839450",
-    appId: "1:721226839450:web:9d74b3e1c2d30e9aa07623",
-    measurementId: "G-8GT2KS7MPK"
-  };
+const firebase = fire()
 
-  if(!firebase.apps.length){
-    firebase.initializeApp(firebaseConfig);
-    firebase.firestore();
-    firebase.storage();
-  }
-
-  //EVENTS LISTENERS
+//EVENTS LISTENERS
 var btn = document.getElementById('submitThis');
 btn.addEventListener('click', logIt, false);
 google.maps.event.addDomListener(window, 'load', initialize);
 var list = document.getElementById('list');
+var listEvent = document.getElementById('listEvent');
 list.addEventListener('click', displaySinglePost, false);
+listEvent.addEventListener('click', displaySingleEventPost, false);
+var frm = document.getElementById("form");
+
+
+
 
 
 //STATE
@@ -33,15 +26,23 @@ var result = ''
 
 //FUNCTIONS
 function initialize() {
+    
     var input = document.getElementById('searchTextField');
     result = new google.maps.places.Autocomplete(input) 
 }
 
 function logIt(){
+    event.preventDefault();
+    var eve = document.getElementById('btnEve');
+    var act = document.getElementById('btnAct');
+    
+    console.log( eve.className)
     arrActivities = new Array
     photosActivities = new Array
-
+    arrEvents = new Array
+ 
     list.innerHTML = ''
+    listEvent.innerHTML = ''
     const selectedItem = document.getElementById("selections");
     const dist = selectedItem.options[selectedItem.selectedIndex].value
    
@@ -52,7 +53,9 @@ function logIt(){
     const date = document.getElementById("date").value;
     const selectedTime = firebase.firestore.Timestamp.fromDate(new Date(date));
  
-    return new Promise((resolve, reject) => {
+    frm.reset();
+    if(act.className === 'checked'){
+    new Promise((resolve, reject) => {
         firebase.firestore().collection('PostedFunActivities').where("geolocation", ">=", range.lower).where("geolocation", "<=", range.upper).get().then((querySnapshot) => {
             querySnapshot.forEach((doc) =>{ 
             //    console.log(doc.data().title)
@@ -67,8 +70,27 @@ function logIt(){
             displayData(result,images)
         })
        
-    }); 
+    })
 }
+        if(eve.className === 'checked'){
+            new Promise((resolve,reject)=>{
+            firebase.firestore().collection('PostedFunEvents').where("geolocation", ">=", range.lower).where("geolocation", "<=", range.upper).get().then((querySnapshot) =>{
+                querySnapshot.forEach((doc) =>{ 
+                   // console.log(doc.data().eventDate,selectedTime)
+                        if(selectedTime <= doc.data().eventDate){
+                            arrEvents.push(doc.data());     
+                        }                                    
+                        })
+                        resolve(arrEvents);
+                    });
+                }).then((result)=>{
+                    displayEventData();
+                })
+        }else{
+            listEvent.innerHTML = 'If you want to view Events click on the Events button and search again'
+        }
+}
+
 const getPhotos = (range) =>{
     return new Promise((resolve, reject) => {
     firebase.firestore().collection('PostedFunActivities').where("geolocation", ">=", range.lower).where("geolocation", "<=", range.upper).get().then(async (querySnapshot) =>{
@@ -76,7 +98,7 @@ const getPhotos = (range) =>{
             console.log(doc.data().title)
             const ref = firebase.storage().ref('images/'+ doc.data().image)
             const result = await ref.getDownloadURL();
-            console.log(result)
+           // console.log(result)
             return result                                      
         }));    
          //console.log('image?', images)
@@ -119,20 +141,90 @@ const getGeohashRange = (latitude,longitude,distance)=>{
        // console.log(key);
         const li = document.createElement('div');
         li.id = key
+        li.className = 'divContainer';
         li.innerHTML = `
-        <div id="${key}">
         <span id ="${key}" class='title'><h3 id ="${key}">${item.title}</h3></span>
         <image src = "${photosActivities[key].result}" id ="${key}" class='image'>
-        </div>
         `
         list.appendChild(li)
     })
-
  }
+
+ const displayEventData = (data,images) =>{
+    arrEvents.map((item, key) =>{
+        console.log('here')
+       // console.log(key);
+        const li = document.createElement('div');
+        li.id = key
+        li.className = 'divContainer';
+        li.innerHTML = `
+        <span id ="${key}" class='title'><h3 id ="${key}">${item.title}</h3></span>
+        <span id = "${key}"><h4 id="${key}">${item.eventDate.toDate().toDateString()}  </h4></span>
+        <span id = "${key}"><h4 id="${key}">${item.eventTime.toDate().toUTCString().slice(17,22)}</h4></span>
+        `
+        listEvent.appendChild(li)
+    })
+ }
+
+ 
 
  function displaySinglePost(event){
-  
-     console.log(event.toElement.id);
-     alert(arrActivities[event.toElement.id].description)
- }
+    if(event.toElement.id >= 0){
+    var modal = document.getElementById("myModal");
+    var data = document.getElementById("modal-content");
+    modal.style.display = "block";
 
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            data.innerHTML = ''
+        }
+        }
+
+        data.innerHTML = `
+        <div id="${event.toElement.id} class="divContainer">
+            <span class="close" id="closeSpan">&times;</span>
+            <span id ="${event.toElement.id}" class='user'><h4 id ="${event.toElement.id}">${arrActivities[event.toElement.id].user}</h4></span>
+            <image src = "${photosActivities[event.toElement.id].result}" id ="${event.toElement.id}" class='image'>
+            <span id ="${event.toElement.id}" class='title'><h4 id ="${event.toElement.id}">${arrActivities[event.toElement.id].description}</h4></span>
+            <span id ="${event.toElement.id}" class='date'><h4 id ="${event.toElement.id}">${arrActivities[event.toElement.id].datePosted}</h4></span>
+        </div>
+                `
+
+            var span = document.getElementById("closeSpan");
+            span.onclick = function() {
+                modal.style.display = "none";
+                data.innerHTML = ''
+                }
+            }
+}
+
+function displaySingleEventPost(event){
+    if(event.toElement.id >= 0){
+        var modal = document.getElementById("myModal");
+        var data = document.getElementById("modal-content");
+        modal.style.display = "block";
+    
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                data.innerHTML = ''
+            }
+            }
+    
+            data.innerHTML = `
+            <div id="${event.toElement.id} class="divContainer">
+                <span class="close" id="closeSpan">&times;</span>
+                <span id ="${event.toElement.id}" class='user'><h4 id ="${event.toElement.id}">${arrEvents[event.toElement.id].user}</h4></span>
+                <span id ="${event.toElement.id}" class='title'><h4 id ="${event.toElement.id}">${arrEvents[event.toElement.id].description}</h4></span>
+                <span id ="${event.toElement.id}" class='date'><h4 id ="${event.toElement.id}">${arrEvents[event.toElement.id].datePosted}</h4></span>
+            </div>
+                    `
+    
+                var span = document.getElementById("closeSpan");
+                span.onclick = function() {
+                    modal.style.display = "none";
+                    data.innerHTML = ''
+                    }
+                }
+}
